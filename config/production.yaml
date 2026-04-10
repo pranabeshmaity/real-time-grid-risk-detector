@@ -1,0 +1,11 @@
+environment: production
+debug: false
+database:
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  name: ${DB_NAME}
+api:
+  port: 8000
+  cors_origins: ["https://neuragrid-production.up.railway.app"]
+monitoring:
+  log_level: INFO

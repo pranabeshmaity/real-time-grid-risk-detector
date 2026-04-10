@@ -1,0 +1,22 @@
+---
+- name: Deploy UGIM system
+  hosts: all
+  tasks:
+    - name: Install Python
+      apt:
+        name: python3-pip
+        state: present
+    
+    - name: Clone repository
+      git:
+        repo: https://github.com/yourusername/ugim-grid-api.git
+        dest: /opt/ugim
+    
+    - name: Install dependencies
+      pip:
+        requirements: /opt/ugim/requirements.txt
+    
+    - name: Start service
+      systemd:
+        name: ugim
+        state: started

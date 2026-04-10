@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ugim-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ugim
+  template:
+    metadata:
+      labels:
+        app: ugim
+    spec:
+      containers:
+      - name: backend
+        image: ugim-backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ugim-service
+spec:
+  selector:
+    app: ugim
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: LoadBalancer

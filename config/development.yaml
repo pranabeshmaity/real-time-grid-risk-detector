@@ -1,0 +1,11 @@
+environment: development
+debug: true
+database:
+  host: localhost
+  port: 5432
+  name: grid_db
+api:
+  port: 8000
+  cors_origins: ["http://localhost:3000", "http://localhost:3007"]
+monitoring:
+  log_level: DEBUG

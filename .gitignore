@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pt
+*.pkl
+*.log
+.DS_Store
+node_modules/
+frontend/build/
+frontend/.next/
+.env
